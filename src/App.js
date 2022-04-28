@@ -1,50 +1,14 @@
+import { useState, useEffect } from "react";
+import categories from "./category-menu/category-menu";
+import DirectoryComponent from "./directory/directory.component.jsx";
+
 const App = () => {
   return (
     <div className="categories-container">
-      <div className="category-container">
-        {/* <img /> */}
-        <div className="category-body-container">
-          <h2>Hats</h2>
-          <p>Shop Now</p>
-        </div>
-      </div>
-      <div className="category-container">
-        {/* <img /> */}
-        <div className="category-body-container">
-          <h2>Hats</h2>
-          <p>Shop Now</p>
-        </div>
-      </div>
-      <div className="category-container">
-        {/* <img /> */}
-        <div className="category-body-container">
-          <h2>Jackets</h2>
-          <p>Shop Now</p>
-        </div>
-      </div>
-      <div className="category-container">
-        {/* <img /> */}
-        <div className="category-body-container">
-          <h2>Sneakers</h2>
-          <p>Shop Now</p>
-        </div>
-      </div>
-      <div className="category-container">
-        {/* <img /> */}
-        <div className="category-body-container">
-          <h2>Womens</h2>
-          <p>Shop Now</p>
-        </div>
-      </div>
-      <div className="category-container">
-        {/* <img /> */}
-        <div className="category-body-container">
-          <h2>Mens</h2>
-          <p>Shop Now</p>
-        </div>
-      </div>
+      {categories.map(({ title, id, imageUrl }) => (
+        <DirectoryComponent key={id} category={title} url={imageUrl} />
+      ))}
     </div>
   );
 };
-
 export default App;
