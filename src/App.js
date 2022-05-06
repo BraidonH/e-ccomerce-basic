@@ -1,14 +1,26 @@
-import { useState, useEffect } from "react";
-import categories from "./category-menu/category-menu";
-import DirectoryComponent from "./directory/directory.component.jsx";
+import { Fragment } from "react";
+import Navigation from "./routes/navigation/navigation.component";
+import { Routes, Route, Outlet } from "react-router-dom";
+import Home from "./routes/home/home.component";
+import SignIn from "./routes/sign-in/sign-in.component";
+
+const Shop = () => {
+  return (
+    <div>
+      <h1>SHOP PAGE</h1>
+    </div>
+  );
+};
 
 const App = () => {
   return (
-    <div className="categories-container">
-      {categories.map(({ title, id, imageUrl }) => (
-        <DirectoryComponent key={id} category={title} url={imageUrl} />
-      ))}
-    </div>
+    <Routes>
+      <Route path="/" element={<Navigation />}>
+        <Route index element={<Home />} />
+        <Route path="shop" element={<Shop />} />
+        <Route path="sign-in" element={<SignIn />} />
+      </Route>
+    </Routes>
   );
 };
 export default App;
